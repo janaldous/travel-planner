@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import SimpleMap from './components/SimpleMap';
+import Sidebar from './components/Sidebar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App:React.FC = () => {
+
+    const [clickedPlace, setClickedPlace] = React.useState<string>("click a marker");
+
+    return (
+        <div className="container">
+            <header>Travel planner</header>
+
+            <nav>
+                <Sidebar
+                    name={clickedPlace}
+                />
+            </nav>
+
+            <main>
+                <SimpleMap 
+                    onMarkerClick={setClickedPlace}
+                />
+            </main>
+
+            <aside></aside>
+
+            <footer></footer>
+        </div>
+    );
 }
 
 export default App;

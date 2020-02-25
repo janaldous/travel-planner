@@ -1,0 +1,40 @@
+.marker {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    background-color: red;
+    border-radius: 30px;
+
+    &.airport {
+        background-color: blue;
+    }
+
+    &.ubud-1 {
+        background-color: #4b0082;
+    }
+    &.ubud-2 {
+        background-color: #7927b4;
+    }
+    &.ubud-3 {
+        background-color: #8e4dbd;
+    }
+    &.ubud-4 {
+        background-color: #a37ebe;
+    }
+
+    &.other {
+        background-color: grey;
+    }
+
+    &.gili-1 {
+        background-color: rgb(2, 88, 2);
+    }
+
+    &.canggu-1 {
+        background-color: crimson;
+    }
+
+    &.accommodation {
+        background-color: orange;
+    }
+}
