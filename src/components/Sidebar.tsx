@@ -1,9 +1,11 @@
 import * as React from "react";
 import "./Sidebar.scss";
+import { Place } from "../domain/Model";
 
 export interface SidebarProps {
     clickedPlace?: ClickedPlace;
     day?: number;
+    places?: Array<Place>;
 }
 
 export interface ClickedPlace {
@@ -29,9 +31,13 @@ export const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
                     <div className="value">{clickedPlace.area}</div>
                 </div>
             </div>)}
+            { props.day && props.places && (
             <div>
-                Showing day {props.day}
-            </div>
+                <div>Showing day {props.day}</div>
+                <ul>
+                    {props.places.map((place, key) => (<li key={key}>{place.text}</li>))}
+                </ul>
+            </div>)}
         </div>
     );
 }

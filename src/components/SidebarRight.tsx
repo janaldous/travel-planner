@@ -17,6 +17,7 @@ export const SidebarRight: React.FC<SidebarRightProps> = (props: SidebarRightPro
     return (
         <div className="sidebar-right">
             {days.map((x, key) => <div id={`${x+1}`} key={key} onClick={handleDayClick}>Day {x+1}</div>)}
+            <div id={"-101"} onClick={handleDayClick} onMouseOver={handleDayClick}>Show all</div>
         </div>
     );
 }
