@@ -1,12 +1,14 @@
 .sidebar {
     padding: 10px;
 
-    .row {
-        margin-bottom: 7px;
-        
-        .label {
-            font-weight: bold;
-            min-width: 50px;
+    .clicked-place {
+        .row {
+            margin-bottom: 7px;
+    
+            .label {
+                font-weight: bold;
+                min-width: 50px;
+            }
         }
     }
 }

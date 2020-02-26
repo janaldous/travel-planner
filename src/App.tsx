@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.scss';
 import SimpleMap from './components/SimpleMap';
-import { Sidebar, SidebarProps } from './components/Sidebar';
+import { Sidebar, ClickedPlace } from './components/Sidebar';
+import { SidebarRight } from './components/SidebarRight';
 
 const App:React.FC = () => {
 
-    const [clickedPlace, setClickedPlace] = React.useState<SidebarProps>({name: "", area: ""});
+    const [clickedPlace, setClickedPlace] = React.useState<ClickedPlace>();
+    const [day, setDay] = React.useState<number>();
 
     return (
         <div className="container">
@@ -13,8 +15,8 @@ const App:React.FC = () => {
 
             <nav>
                 <Sidebar
-                    name={clickedPlace.name}
-                    area={clickedPlace.area}
+                    clickedPlace={clickedPlace}
+                    day={day}
                 />
             </nav>
 
@@ -24,7 +26,11 @@ const App:React.FC = () => {
                 />
             </main>
 
-            <aside></aside>
+            <aside>
+                <SidebarRight
+                    onDayClick={setDay}
+                />
+            </aside>
 
             <footer></footer>
         </div>
