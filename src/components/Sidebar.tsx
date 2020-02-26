@@ -1,16 +1,22 @@
 import * as React from "react";
+import "./Sidebar.scss";
 
-interface SidebarProps {
+export interface SidebarProps {
     name: string;
+    area: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
+export const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
     return (
-        <div>
-            <div>name</div>
-            <div>{props.name}</div>
+        <div className="sidebar">
+            <div className="row">
+                <div className="label">Name</div>
+                <div className="value">{props.name}</div>
+            </div>
+            <div className="row">
+                <div className="label">Area</div>
+                <div className="value">{props.area}</div>
+            </div>
         </div>
     );
 }
-
-export default Sidebar;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Map, GoogleApiWrapper, Marker, MapProps } from 'google-maps-react';
 import "./Marker.scss";
 import "./SimpleMap.scss";
+import { SidebarProps } from '../components/Sidebar';
 
 type TimeOfDay = "am" | "pm" | "sunset" | "sunrise";
 
@@ -15,12 +16,9 @@ interface MarkerProps {
     address?: string;
     text: string;
 }
-// const Marker = (props: MarkerProps) => {
-//     return (<div className={`marker ${props.area}`}>{props.text}</div>)
-// };
 
 interface SimpleMapProps {
-    onMarkerClick: (place: string) => void
+    onMarkerClick: (place: SidebarProps) => void
 }
 
 const SimpleMap: React.FC<SimpleMapProps & MapProps> = React.memo((props:SimpleMapProps & MapProps) => {
@@ -61,6 +59,8 @@ const SimpleMap: React.FC<SimpleMapProps & MapProps> = React.memo((props:SimpleM
         {lat: -8.6504964, lng: 115.1356257, area: "canggu-1", type: "accommodation", text: "ExoticA Bali Villa B&B", address: "Jalan Pantai Batu Bolong No.32 B, Canggu, Kuta Utara, Canggu, Kuta Utara Canggu Kuta Utara, Canggu, North Kuta, Badung Regency, Bali 80361, Indonesia"},
     ];
 
+    const [selected, setSelected] = React.useState<string>();
+
     const typeToColor = (type: string): string => {
         switch (type) {
             case "poi": return "blue";
@@ -71,8 +71,17 @@ const SimpleMap: React.FC<SimpleMapProps & MapProps> = React.memo((props:SimpleM
 
     const handleMouseOver = React.useCallback((_props: any, marker: any, e: any) => {
         console.log(_props);
-        props.onMarkerClick(_props.title)
-    }, [props]);
+        if (selected !== _props.title) {
+            const item = markers.filter(x => x.text === _props.title)[0];
+            props.onMarkerClick({name: item.text, area: item.area});
+            setSelected(_props.title);
+        }
+    }, [props, markers, selected]);
+
+    const handleMouseOut = () => {
+        // props.onMarkerClick({name: "", area: ""});
+        setSelected("");
+    }
 
     return (
         <div className="main-map">
@@ -89,6 +98,8 @@ const SimpleMap: React.FC<SimpleMapProps & MapProps> = React.memo((props:SimpleM
                             title={marker.text}
                             icon={`http://maps.google.com/mapfiles/ms/icons/${typeToColor(marker.type)}-dot.png`}
                             onClick={handleMouseOver}
+                            onMouseover={handleMouseOver}
+                            onMouseout={handleMouseOut}
                         />
                     );
                 })}

@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
 import SimpleMap from './components/SimpleMap';
-import Sidebar from './components/Sidebar';
+import { Sidebar, SidebarProps } from './components/Sidebar';
 
 const App:React.FC = () => {
 
-    const [clickedPlace, setClickedPlace] = React.useState<string>("click a marker");
+    const [clickedPlace, setClickedPlace] = React.useState<SidebarProps>({name: "", area: ""});
 
     return (
         <div className="container">
@@ -13,7 +13,8 @@ const App:React.FC = () => {
 
             <nav>
                 <Sidebar
-                    name={clickedPlace}
+                    name={clickedPlace.name}
+                    area={clickedPlace.area}
                 />
             </nav>
 
