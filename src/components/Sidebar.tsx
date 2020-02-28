@@ -33,7 +33,7 @@ export const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
             </div>)}
             { props.day && props.places && (
             <div>
-                <div>Showing day {props.day}</div>
+                <div className="label">Showing day {props.day}</div>
                 <ul>
                     {props.places.map((place, key) => (<li key={key}>{place.text}</li>))}
                 </ul>
