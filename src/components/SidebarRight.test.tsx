@@ -28,7 +28,7 @@ describe("Description of test", () => {
         expect(container.querySelector("#day-1")).not.toBeNull();
         expect(container.querySelector("#day-14")).not.toBeNull();
         expect(container.querySelector("#show-all")).not.toBeNull();
-            
+        
         const day1 = container.querySelector("#day-1");
 
         act(() => {

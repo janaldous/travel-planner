@@ -33,6 +33,7 @@ const App:React.FC = () => {
         {lat: -8.8475143, lng: 115.1507311, area: "canggu-1", day: 10, type: "poi", text: "Karma Beach"},
         {lat: -8.8111524, lng: 115.1016356, area: "canggu-1", day: 10, type: "poi", text: "Padang-Padang Beach"},
         {lat: -8.6504964, lng: 115.1356257, area: "canggu-1", day: 10, type: "accommodation", text: "ExoticA Bali Villa B&B", address: "Jalan Pantai Batu Bolong No.32 B, Canggu, Kuta Utara, Canggu, Kuta Utara Canggu Kuta Utara, Canggu, North Kuta, Badung Regency, Bali 80361, Indonesia"},
+        {lat: -8.5115242, lng: 115.2560823, area: "ubud-1", day: 6, type: "accommodation", text: "Adiwana Bisma"},
     ];
 
     const [clickedPlace, setClickedPlace] = React.useState<ClickedPlace>();

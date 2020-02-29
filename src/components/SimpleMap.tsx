@@ -53,7 +53,7 @@ const SimpleMap: React.FC<SimpleMapProps & MapProps> = (props:SimpleMapProps & M
             >
                 {props.places.length > 0 && props.places.map((marker, key) => {
                     return (
-                        <Marker 
+                        <Marker
                             key={key}
                             position={{lat: marker.lat, lng: marker.lng}}
                             title={marker.text}

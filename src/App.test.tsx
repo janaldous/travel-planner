@@ -1,13 +1,30 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { act } from "react-dom/test-utils";
+import { render, unmountComponentAtNode } from "react-dom";
 import App from './App';
 
-// test('renders learn react link', () => {
-//   const { getByText } = render(<App />);
-//   const linkElement = getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
-
-test('adds 1 + 2 to equal 3', () => {
-  expect(1 + 2).toBe(3);
+let container:Element;
+beforeEach(() => {
+    // setup a DOM element as a render target
+    container = document.createElement("div");
+    document.body.appendChild(container);
 });
+
+afterEach(() => {
+    // cleanup on exiting
+    unmountComponentAtNode(container);
+    container.remove();
+});
+
+describe("App component", () => {
+    it("shows correct day in left sidebar when clicking a day in the right sidebar", () => {
+        act(() => {
+            render(<App/>, container);
+        });
+    
+        act(() => {
+            container.querySelector("#day-1")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+        });
+        expect(container.querySelector("#day")?.textContent).toBe("Showing day 1");
+    });
+})
