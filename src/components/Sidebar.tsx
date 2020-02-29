@@ -24,17 +24,17 @@ export const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
             <div className="clicked-place">
                 <div className="row">
                     <div className="label">Name</div>
-                    <div className="value">{clickedPlace.name}</div>
+                    <div className="value" id="name">{clickedPlace.name}</div>
                 </div>
                 <div className="row">
                     <div className="label">Area</div>
-                    <div className="value">{clickedPlace.area}</div>
+                    <div className="value" id="area">{clickedPlace.area}</div>
                 </div>
             </div>)}
             { props.day && props.places && (
             <div>
-                <div className="label">Showing day {props.day}</div>
-                <ul>
+                <div className="label" id="day">Showing day {props.day}</div>
+                <ul id="places-list">
                     {props.places.map((place, key) => (<li key={key}>{place.text}</li>))}
                 </ul>
             </div>)}
