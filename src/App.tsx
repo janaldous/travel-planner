@@ -4,6 +4,9 @@ import SimpleMap from './components/SimpleMap';
 import { Sidebar, ClickedPlace } from './components/Sidebar';
 import { SidebarRight } from './components/SidebarRight';
 import { Place } from "./domain/Model";
+import * as Api from "typescript-fetch-api";
+
+const placeApi = new Api.PlaceControllerApi();
 
 const App:React.FC = () => {
 
@@ -49,6 +52,13 @@ const App:React.FC = () => {
             setDay(day);
         }
     };
+
+    React.useEffect(() => {
+        (async () => {
+            const response = await placeApi.getAllPlacesUsingGET();
+            console.log(response);
+        })();
+    }, []);
 
     return (
         <div className="container">

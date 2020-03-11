@@ -1,0 +1,7 @@
+{
+    "npmName": "typescript-fetch-api",
+    "npmVersion": "1.0.0",
+    "snapshot": true,
+    "supportsES6": false,
+    "modelPropertyNaming": "original"
+}
