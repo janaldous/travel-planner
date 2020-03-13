@@ -71,6 +71,14 @@ const SimpleMap: React.FC<SimpleMapProps & MapProps> = (props:SimpleMapProps & M
 
 export { SimpleMap };
 
-export default GoogleApiWrapper(() => ({
-    apiKey: "AIzaSyDbcM5AOjEOn5tp18yfzV2jep_1gCdtmgo"
-  }))(SimpleMap);
+export default GoogleApiWrapper(() => {
+    let API_KEY = "";
+    if (process.env.REACT_APP_MAPS_API_KEY) {
+        API_KEY = process.env.REACT_APP_MAPS_API_KEY;
+    } else {
+        throw new Error("API key does not exist");
+    }
+    return {
+        apiKey: API_KEY
+    };
+  })(SimpleMap);
