@@ -4,9 +4,8 @@ import SimpleMap from './components/SimpleMap';
 import { Sidebar, ClickedPlace } from './components/Sidebar';
 import { SidebarRight } from './components/SidebarRight';
 import { Place } from "./domain/Model";
-import * as Api from "typescript-fetch-api";
-
-const placeApi = new Api.PlaceControllerApi();
+import { PlaceControllerApi } from "typescript-fetch-api";
+import { PlaceEntity } from "typescript-fetch-api/dist/models/PlaceEntity";
 
 const App:React.FC = () => {
 
@@ -42,6 +41,7 @@ const App:React.FC = () => {
     const [clickedPlace, setClickedPlace] = React.useState<ClickedPlace>();
     const [day, setDay] = React.useState<number>();
     const [places, setPlaces] = React.useState<Array<Place>>(markers);
+    const [placesRest, setPlacesRest] = React.useState<Array<PlaceEntity>>();
 
     const handleSetDay = (day: number) => {
         if (day === -101) {
@@ -54,9 +54,11 @@ const App:React.FC = () => {
     };
 
     React.useEffect(() => {
+        const placeApi = new PlaceControllerApi();
+
         (async () => {
             const response = await placeApi.getAllPlacesUsingGET();
-            console.log(response);
+            setPlacesRest(response);
         })();
     }, []);
 
@@ -70,6 +72,9 @@ const App:React.FC = () => {
                     day={day}
                     places={places}
                 />
+                <div id="places-rest">
+                    <ul>{placesRest?.map((place, key) => (<li key={key}>{place.name}</li>))}</ul>
+                </div>
             </nav>
 
             <main>
