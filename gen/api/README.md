@@ -1,4 +1,4 @@
-## typescript-fetch-api@1.0.0-SNAPSHOT.202003120017
+## typescript-fetch-api@1.0.0-SNAPSHOT.202003142222
 
 This generator creates TypeScript/JavaScript client that utilizes [Fetch API](https://fetch.spec.whatwg.org/). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install typescript-fetch-api@1.0.0-SNAPSHOT.202003120017 --save
+npm install typescript-fetch-api@1.0.0-SNAPSHOT.202003142222 --save
 ```
 
 _unPublished (not recommended):_
