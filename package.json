@@ -19,7 +19,7 @@
     "react-scripts": "3.4.0",
     "react-test-renderer": "^16.13.0",
     "typescript": "^3.7.5",
-    "typescript-fetch-api": "file:gen/api"
+    "typescript-fetch-api": "file:./gen/api"
   },
   "scripts": {
     "start": "react-scripts start",
