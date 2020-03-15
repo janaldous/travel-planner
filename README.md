@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Required environment variables
+
+Please add the api url and Google Maps API Key to the environment variables
+
+REACT_APP_API_URL
+REACT_APP_MAPS_API_KEY
+
+
 ## Available Scripts
 
 In the project directory, you can run:
