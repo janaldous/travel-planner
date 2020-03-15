@@ -13,7 +13,7 @@
  */
 
 
-export const BASE_PATH = "http://localhost:8081".replace(/\/+$/, "");
+export const BASE_PATH = "http://bukangliwayway-api.herokuapp.com".replace(/\/+$/, "");
 
 const isBlob = (value: any) => typeof Blob !== 'undefined' && value instanceof Blob;
 
