@@ -2,7 +2,7 @@ import React from 'react';
 import { act } from "react-dom/test-utils";
 import { render, unmountComponentAtNode } from "react-dom";
 import App from './App';
-import { PlaceControllerApi } from "typescript-fetch-api";
+import { PlaceControllerApi } from "travel-planner-client";
 
 let container:Element;
 beforeEach(() => {

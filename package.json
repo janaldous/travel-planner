@@ -18,15 +18,14 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0",
     "react-test-renderer": "^16.13.0",
-    "typescript": "^3.7.5",
-    "typescript-fetch-api": "file:./gen/api"
+    "travel-planner-client": "git+https://github.com/janaldous/travel-planner-client.git",
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "api": "rm -rf gen/api && openapi-generator generate -i $REACT_APP_API_URL/v2/api-docs --skip-validate-spec --generator-name typescript-fetch -o ./gen/api --config api.json && cd gen/api && npm install"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,9 +42,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^1.0.10-4.2.3"
-  },
+  "devDependencies": {},
   "engines": {
     "node": "10.13.x",
     "npm": "6.14.x"

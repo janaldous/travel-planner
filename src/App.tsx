@@ -4,8 +4,8 @@ import SimpleMap from './components/SimpleMap';
 import { Sidebar, ClickedPlace } from './components/Sidebar';
 import { SidebarRight } from './components/SidebarRight';
 import { Place } from "./domain/Model";
-import { PlaceControllerApi } from "typescript-fetch-api";
-import { PlaceEntity } from "typescript-fetch-api/dist/models/PlaceEntity";
+import { PlaceEntity } from "travel-planner-client";
+import { PlaceControllerApi } from "travel-planner-client";
 
 const App:React.FC = () => {
 
